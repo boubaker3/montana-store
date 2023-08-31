@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.9e8b9d62.css","mappings":"AAAA,MACE,iCACF,CCFA,oBACI,YACF","sources":["components/home/style.css","components/reviews/reviews.css"],"sourcesContent":[".Card {\r\n  transition: opacity 1s ease-in-out;\r\n}\r\n\r\n \r\n","::-webkit-scrollbar {\r\n    display: none;  \r\n  }"],"names":[],"sourceRoot":""}

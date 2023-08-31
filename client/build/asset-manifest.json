@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9e8b9d62.css",
+    "main.js": "/static/js/main.a320ecea.js",
+    "static/media/photo.png": "/static/media/photo.aeee2c0a1294b4b622da.png",
+    "static/media/profile.png": "/static/media/profile.7650acc73ee9eafbe05c.png",
+    "static/media/vision.gif": "/static/media/vision.f8b73fa9f7a75195e607.gif",
+    "static/media/aboutmontana.gif": "/static/media/aboutmontana.b64dc479e2b612c4ed5b.gif",
+    "static/media/quality.gif": "/static/media/quality.7c884a48a16fde629c7a.gif",
+    "static/media/logo.png": "/static/media/logo.48d22c4304d67821683c.png",
+    "static/media/welcoming.png": "/static/media/welcoming.396dff3703c54cf5fbd7.png",
+    "index.html": "/index.html",
+    "main.9e8b9d62.css.map": "/static/css/main.9e8b9d62.css.map",
+    "main.a320ecea.js.map": "/static/js/main.a320ecea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e8b9d62.css",
+    "static/js/main.a320ecea.js"
+  ]
+}
