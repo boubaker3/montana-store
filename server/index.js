@@ -33,11 +33,14 @@ connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
 // Serve static files for React client
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 // This route handles all other routes and serves 'index.html'.
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
 });
 
 app.listen(process.env.PORT || port, () => {
