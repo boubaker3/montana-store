@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const path = require("path");
 const cors = require("cors");
-const port = 80;
+const port = 5000;
 
 // Enable CORS before handling API routes
 app.use(cors());
