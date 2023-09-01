@@ -40,7 +40,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 app.use((err, req, res, next) => {
-  res.status(500).send({ message: err.message });
+  console.log(err.message);
 });
 
 app.listen(process.env.PORT || port, () => {
