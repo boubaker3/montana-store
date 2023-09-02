@@ -33,7 +33,7 @@ connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
 // Serve static files for React client
-app.use(express.static(path.join(__dirname, "client", "build")));
+app.use(express.static("./client/build"));
 
 // This route handles all other routes and serves 'index.html'.
 app.get("*", (req, res) => {
