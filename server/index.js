@@ -1,6 +1,6 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-require("dotenv").config();
 const app = express();
 const path = require("path");
 const cors = require("cors");
@@ -24,13 +24,10 @@ app.use("/", ordersRouter);
 app.use("/", reviewsRouter);
 app.use("/", contactsRouter);
 
-mongoose.connect(
-  "mongodb+srv://boubaker03:ach.2003@montana-cluster.uzz299k.mongodb.net/?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
@@ -46,6 +43,6 @@ app.use((err, req, res, next) => {
   console.log(err.message);
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Server is running on port: ${port}`);
 });

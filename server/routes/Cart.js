@@ -92,14 +92,10 @@ function authenticateToken(req, res, next) {
   if (token == null) {
     res.send("token is undefined");
   }
-  jwt.verify(
-    token,
-    "9d465f6591e9feb7640b6235c0782ae23603574ab48620bd626ccc016f0b5e4d488adb7c52fb4a2ac13a4384e89562350d3c91d4d17e79e8bc6298f9a88313b8",
-    (err, user) => {
-      if (err) return res.sendStatus(403);
-      req.user = user;
-      next();
-    }
-  );
+  jwt.verify(token, process.env.ACCESS_TOKEN, (err, user) => {
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    next();
+  });
 }
 module.exports = router;
