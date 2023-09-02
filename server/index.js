@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const path = require("path");
 const cors = require("cors");
- 
+
 const port = 5000;
 
 // Enable CORS before handling API routes
@@ -35,14 +35,11 @@ connection.once("open", () => {
 });
 
 // Serve static files for React client
-app.use(express.static("./client/build"));
-
-// This route handles all other routes and serves 'index.html'.
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
-
- 
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "/client/build")));
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "/client/build/index.html"))
+);
 
 httpsServer.listen(process.env.PORT || port, () => {
   console.log(`HTTPS Server is running on port: ${port}`);
