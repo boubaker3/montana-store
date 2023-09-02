@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const path = require("path");
 const cors = require("cors");
-const port = 80;
+const port = 5000;
 
 // Enable CORS before handling API routes
 app.use(cors());
@@ -33,9 +33,14 @@ connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
 // Serve static files for React client
-app.use(express.static("./client/build"));
+app.use(express.static(path.join(__dirname, "client", "build")));
+
+// This route handles all other routes and serves 'index.html'.
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+app.use((err, req, res, next) => {
+  console.log(err.message);
 });
 
 app.listen(process.env.PORT || port, () => {
