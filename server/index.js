@@ -41,6 +41,6 @@ app.get("*", (req, res) =>
   res.sendFile(path.join(__dirname, "/client/build/index.html"))
 );
 
-httpsServer.listen(process.env.PORT || port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`HTTPS Server is running on port: ${port}`);
 });
