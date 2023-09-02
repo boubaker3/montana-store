@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const app = express();
 const path = require("path");
 const cors = require("cors");
+const https = require("https"); // Import the 'https' module
+const fs = require("fs"); // Import the 'fs' module
 const port = 5000;
 
 // Enable CORS before handling API routes
@@ -32,6 +34,7 @@ const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
+
 // Serve static files for React client
 app.use(express.static("./client/build"));
 
@@ -40,6 +43,20 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
-app.listen(process.env.PORT || port, () => {
-  console.log(`Server is running on port: ${port}`);
+// Define the SSL certificate and private key paths
+const privateKeyPath = "/etc/letsencrypt/live/montanastore.net/privkey.pem";
+const certificatePath = "/etc/letsencrypt/live/montanastore.net/fullchain.pem";
+
+// Read the SSL certificate and private key files
+const privateKey = fs.readFileSync(privateKeyPath, "utf8");
+const certificate = fs.readFileSync(certificatePath, "utf8");
+
+// Create the HTTPS options object
+const credentials = { key: privateKey, cert: certificate };
+
+// Create the HTTPS server
+const httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(process.env.PORT || port, () => {
+  console.log(`HTTPS Server is running on port: ${port}`);
 });
