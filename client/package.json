@@ -1,8 +1,6 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://montanastore.net/",
-  "proxy": "http://127.0.0.1:5000/",
     "private": true, 
    "dependencies": {
     "@emotion/react": "^11.11.1",
