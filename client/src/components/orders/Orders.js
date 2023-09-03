@@ -12,7 +12,10 @@ export default function Orders() {
   const handleOrders = async () => {
     setLoading(true);
     try {
+      console.log(user + "" + token);
       if (user && token) {
+        console.log(user + "" + token);
+
         const response = await getOrders(user._id, pageNum);
         setOrders(response);
         setLoading(false);
