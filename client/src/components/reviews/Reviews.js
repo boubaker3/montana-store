@@ -28,6 +28,7 @@ export default function Reviews() {
     try {
       const reviews = await getReviews(page);
       setReviews(reviews);
+      setPageNum(page); // Update the pageNum state
       setLoading(false);
     } catch (error) {
       setLoading(false);
