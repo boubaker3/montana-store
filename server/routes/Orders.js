@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const Order = require("../models/Order");
 require("dotenv").config();
 
-router.route("/orders").get(authenticateToken, async (req, res) => {
+router.route("/orders").get(async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;  
@@ -23,7 +23,7 @@ router.route("/orders").get(authenticateToken, async (req, res) => {
   }
 });
 
-router.route("/addOrder").post(authenticateToken, (req, res) => {
+router.route("/addOrder").post( (req, res) => {
   const paymentID = req.body.paymentID;
   const payerID = req.body.payerID;
   const paymentSource = req.body.paymentSource;

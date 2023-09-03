@@ -43,7 +43,7 @@ router.route("/cartlength").get(authenticateToken, (req, res) => {
     });
 });
 
-router.route("/addToCart").post(authenticateToken, async (req, res) => {
+router.route("/addToCart").post( async (req, res) => {
   const { productName, productImage, sellPrice, pid, userid } = req.body;
 
   // Check if the user already has 50 items in their cart
@@ -74,7 +74,7 @@ router.route("/addToCart").post(authenticateToken, async (req, res) => {
     });
 });
 
-router.route("/deleteCart").delete(authenticateToken, (req, res) => {
+router.route("/deleteCart").delete( (req, res) => {
   const { id } = req.query;
 
   Cart.findByIdAndDelete(id)

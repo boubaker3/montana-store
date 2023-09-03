@@ -22,7 +22,7 @@ router.route("/reviews").get(async (req, res) => {
   }
 });
 
-router.route("/addReview").post(authenticateToken, async (req, res) => {
+router.route("/addReview").post(async (req, res) => {
   const { username, review, rating, userid } = req.body;
 
   // Define the review limit and timeframe (e.g., 1 review per day)
