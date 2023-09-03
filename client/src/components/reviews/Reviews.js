@@ -172,6 +172,11 @@ export default function Reviews() {
         wrap="nowrap"
         sx={{
           overflowX: "auto",
+          scrollbarWidth: "none", // Firefox
+          "-ms-overflow-style": "none", // Internet Explorer and Edge
+          "&::-webkit-scrollbar": {
+            width: 0, // Chrome, Safari, and Opera
+          },
           justifyContent: { xs: "start", md: "center" },
         }}
       >
