@@ -1,8 +1,6 @@
 import axios from "axios";
-const token = "";
-if (localStorage.getItem("token")) {
-  token = localStorage.getItem("token");
-}
+const token = localStorage.getItem("token");
+
 const axiosInstance = axios.create({
   baseURL: "https://montanastore.net/",
 });
