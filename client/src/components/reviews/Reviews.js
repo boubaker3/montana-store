@@ -23,7 +23,16 @@ export default function Reviews() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const navigate = useNavigate();
-  const handleGetReviews = async (page) => {};
+  const handleGetReviews = async (page) => {
+    setLoading(true);
+    try {
+      const reviews = await getReviews(page);
+      setReviews(reviews);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     handleGetReviews();

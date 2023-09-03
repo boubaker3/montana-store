@@ -1,7 +1,7 @@
 import axiosInstance from "../Axios";
 export const getReviews = async (page) => {
   try {
-    const response = await axiosInstance.get("reviews", {
+    const response = await axiosInstance.get("reviews/getReviews", {
       params: {
         page,
       },
@@ -12,9 +12,14 @@ export const getReviews = async (page) => {
   }
 };
 
-export const addReview = async ({ username,review,rating,userid }) => {
+export const addReview = async ({ username, review, rating, userid }) => {
   try {
-    const response = await axiosInstance.post("addReview", { username,review,rating,userid });
+    const response = await axiosInstance.post("addReview", {
+      username,
+      review,
+      rating,
+      userid,
+    });
 
     return response.data;
   } catch (error) {
