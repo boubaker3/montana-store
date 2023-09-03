@@ -8,16 +8,17 @@ export default function Orders() {
   const [pageNum, setPageNum] = useState(1);
   const [orders, setOrders] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
+  const token = JSON.parse(localStorage.getItem("token"));
   const handleOrders = async () => {
     setLoading(true);
-    if (user) {
-      try {
+    try {
+      if (user && token) {
         const response = await getOrders(user._id, pageNum);
         setOrders(response);
         setLoading(false);
-      } catch (error) {
-        setLoading(false);
       }
+    } catch (error) {
+      setLoading(false);
     }
   };
   useEffect(() => {
@@ -69,20 +70,21 @@ export default function Orders() {
         </>
       )}
       {!user && (
-      <Grid
-      container
-      justifyContent="center"
-      alignItems="center"
-      textAlign="center" 
-    >
-      <Grid item xs={12}>
-        <Typography>you are not logged</Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Typography>please login to be able to have orders feature</Typography>
-      </Grid>
-    </Grid>
-    
+        <Grid
+          container
+          justifyContent="center"
+          alignItems="center"
+          textAlign="center"
+        >
+          <Grid item xs={12}>
+            <Typography>you are not logged</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography>
+              please login to be able to have orders feature
+            </Typography>
+          </Grid>
+        </Grid>
       )}
     </Grid>
   );
