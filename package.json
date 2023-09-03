@@ -2,6 +2,7 @@
     "name": "montana",
     "version": "1.0.0",
     "description": "store",
+    "homepage": "https://montanastore.net/",
     "main": "server/index.js",
     "scripts": {
       "build": "cd server && npm install  && cd ../client && npm install && npm run build",
