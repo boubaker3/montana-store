@@ -6,7 +6,7 @@ require("dotenv").config();
 router.route("/orders").get(authenticateToken, async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;  
+    const limit = parseInt(req.query.limit) || 10;
     const userid = req.query.userid;
 
     const skip = (page - 1) * limit;
@@ -37,8 +37,8 @@ router.route("/addOrder").post(authenticateToken, (req, res) => {
 
   const newOrder = new Order({
     paymentID,
-        payerID,
-        paymentSource,
+    payerID,
+    paymentSource,
     productName,
     productImage,
     price,
@@ -60,7 +60,7 @@ function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
   if (token == null) {
-    res.send("token is undefined");
+    next();
   }
   jwt.verify(token, process.env.ACCESS_TOKEN, (err, user) => {
     if (err) return res.sendStatus(403);
