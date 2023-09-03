@@ -14,7 +14,7 @@ export const useGetCart = () => {
   const getCart = async (userid, page) => {
     dispatch(setLoading(true));
     try {
-      const response = await axiosInstance.get("cart", {
+      const response = await axiosInstance.get("cart/getCart", {
         params: {
           userid,
           page,
@@ -35,7 +35,7 @@ export const useGetCartLength = () => {
   const getCartLength = async (userid) => {
     dispatch(setLoading(true));
     try {
-      const response = await axiosInstance.get("cartLength", {
+      const response = await axiosInstance.get("cart/getCartLength", {
         params: {
           userid,
         },
@@ -56,7 +56,7 @@ export const useDeleteCart = () => {
   const deleteCart = async (id) => {
     dispatch(setLoading(true));
     try {
-      const response = await axiosInstance.delete("deleteCart", {
+      const response = await axiosInstance.delete("cart/deleteCart", {
         params: {
           id,
         },
@@ -82,7 +82,7 @@ export const useAddToCart = () => {
   }) => {
     dispatch(setLoading(true));
     try {
-      const response = await axiosInstance.post("addToCart", {
+      const response = await axiosInstance.post("cart/addToCart", {
         productName,
         productImage,
         sellPrice,

@@ -70,11 +70,11 @@ export const saveOrder = async (
   userid
 ) => {
   try {
-    const response = await axiosInstance.post("addOrder", {
+    const response = await axiosInstance.post("order/addOrder", {
       paymentID,
       payerID,
       paymentSource,
-      productName:shippingName,
+      productName: shippingName,
       productImage,
       quantity,
       price,
@@ -84,13 +84,13 @@ export const saveOrder = async (
     });
     return response.data;
   } catch (error) {
-    console.error("Failed to save order " );
+    console.error("Failed to save order ");
   }
 };
 
 export const getOrders = async (userid, page) => {
   try {
-    const response = await axiosInstance.get("orders", {
+    const response = await axiosInstance.get("orders/getOrders", {
       params: {
         userid,
         page,

@@ -1,7 +1,7 @@
 import axiosInstance from "../Axios";
 export const addContact = async ({ fullname, email, phone, message }) => {
   try {
-    const response = await axiosInstance.post("addContact", {
+    const response = await axiosInstance.post("contacts/addContact", {
       fullname,
       email,
       phone,

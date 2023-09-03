@@ -19,10 +19,10 @@ const reviewsRouter = require("./routes/Reviews");
 const contactsRouter = require("./routes/Contacts");
 
 app.use("/", authRouter);
-app.use("/", cartRouter);
-app.use("/", ordersRouter);
+app.use("/cart", cartRouter);
+app.use("/orders", ordersRouter);
 app.use("/reviews", reviewsRouter);
-app.use("/", contactsRouter);
+app.use("/contacts", contactsRouter);
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,

@@ -79,7 +79,12 @@ export default function Reviews() {
     setSnackbarOpen(false);
   };
   return (
-    <Grid container spacing={2} justifyContent="center">
+    <Grid
+      container
+      spacing={2}
+      justifyContent="center"
+      className="reviewsContainer"
+    >
       <Grid item xs={12} textAlign="center">
         <Typography variant="h4">your reviews</Typography>
       </Grid>
@@ -161,13 +166,14 @@ export default function Reviews() {
       )}
 
       <Grid
-        id="reviewsContainer"
         container
         p={4}
         spacing={4}
         wrap="nowrap"
-        justifyContent="start"
-        sx={{ overflowX: "auto" }}
+        sx={{
+          overflowX: "auto",
+          justifyContent: { xs: "start", md: "center" },
+        }}
       >
         {reviews && reviews.length === 0 && !loading ? (
           <Typography variant="h5" m={4}>

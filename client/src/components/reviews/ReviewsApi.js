@@ -14,7 +14,7 @@ export const getReviews = async (page) => {
 
 export const addReview = async ({ username, review, rating, userid }) => {
   try {
-    const response = await axiosInstance.post("addReview", {
+    const response = await axiosInstance.post("reviews/addReview", {
       username,
       review,
       rating,

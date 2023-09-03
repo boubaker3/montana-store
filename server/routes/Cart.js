@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const Cart = require("../models/Cart");
 
-router.route("/cart").get(authenticateToken, (req, res) => {
+router.route("/getCart").get(authenticateToken, (req, res) => {
   const { userid, page, limit = 10 } = req.query;
 
   const startIndex = (page - 1) * limit;
@@ -31,7 +31,7 @@ router.route("/cart").get(authenticateToken, (req, res) => {
   }
 });
 
-router.route("/cartlength").get(authenticateToken, (req, res) => {
+router.route("/getCartlength").get(authenticateToken, (req, res) => {
   const { userid } = req.query;
 
   Cart.find({ userid: userid })
@@ -43,7 +43,7 @@ router.route("/cartlength").get(authenticateToken, (req, res) => {
     });
 });
 
-router.route("/addToCart").post( async (req, res) => {
+router.route("/addToCart").post(authenticateToken, async (req, res) => {
   const { productName, productImage, sellPrice, pid, userid } = req.body;
 
   // Check if the user already has 50 items in their cart
@@ -74,7 +74,7 @@ router.route("/addToCart").post( async (req, res) => {
     });
 });
 
-router.route("/deleteCart").delete( (req, res) => {
+router.route("/deleteCart").delete(authenticateToken, (req, res) => {
   const { id } = req.query;
 
   Cart.findByIdAndDelete(id)
