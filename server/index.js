@@ -19,22 +19,25 @@ const reviewsRouter = require("./routes/Reviews");
 const contactsRouter = require("./routes/Contacts");
 
 app.use("/", authRouter);
-app.use("cart", cartRouter);
-app.use("orders", ordersRouter);
-app.use("reviews", reviewsRouter);
-app.use("contacts", contactsRouter);
+app.use("/cart", cartRouter);
+app.use("/orders", ordersRouter);
+app.use("/reviews", reviewsRouter);
+app.use("/contacts", contactsRouter);
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://boubaker03:ach.2003@montana-cluster.uzz299k.mongodb.net/?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
 
 // Serve static files for React client
-app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, "../public/build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
 });
