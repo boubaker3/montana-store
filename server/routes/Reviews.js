@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const Review = require("../models/Review");
 
-router.route("/reviews").get(async (req, res) => {
+router.route("/getReviews").get(async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 4;

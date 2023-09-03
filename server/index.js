@@ -21,7 +21,7 @@ const contactsRouter = require("./routes/Contacts");
 app.use("/", authRouter);
 app.use("/", cartRouter);
 app.use("/", ordersRouter);
-app.use("/", reviewsRouter);
+app.use("/reviews", reviewsRouter);
 app.use("/", contactsRouter);
 
 mongoose.connect(process.env.MONGODB_URI, {
