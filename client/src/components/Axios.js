@@ -4,7 +4,7 @@ if (localStorage.getItem("token")) {
   token = localStorage.getItem("token");
 }
 const axiosInstance = axios.create({
-  baseURL: "http://127.0.0.1:5000/",
+  baseURL: "https://montanastore.net/",
 });
 axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
