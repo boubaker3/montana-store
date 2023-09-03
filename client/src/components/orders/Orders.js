@@ -8,7 +8,7 @@ export default function Orders() {
   const [pageNum, setPageNum] = useState(1);
   const [orders, setOrders] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
-  const token = JSON.parse(localStorage.getItem("token"));
+  const token = localStorage.getItem("token");
   const handleOrders = async () => {
     setLoading(true);
     try {
