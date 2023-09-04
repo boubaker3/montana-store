@@ -48,6 +48,8 @@ export default function About() {
                 container
                 justifyContent="center"
                 sx={{
+                  width: "100%",
+                  height: "400px",
                   p: 2,
                   backgroundColor: "white",
                   color: "black",

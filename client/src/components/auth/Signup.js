@@ -144,10 +144,7 @@ export default function Signup() {
                   color: "white",
                   borderRadius: "38px",
                   fontSize: { xs: "12px", md: "12px", lg: "14px" },
-                  "&:hover": {
-                    backgroundColor: "secondary.main", // Change to your desired hover color
-                  },
-                  transition: "background-color 0.3s ease",
+
                 }}
               >
                 Signup

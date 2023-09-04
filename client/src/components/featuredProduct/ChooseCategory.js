@@ -82,7 +82,14 @@ const ChooseCategory = () => {
           columnGap={2}
           m={1}
         >
-          <Typography variant="h6" sx={{ fontWeight: "bold", mt: {xs:2,sm:10,lg:8},textAlign:"center" }}>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: "bold",
+              mt: { xs: 2, sm: 10, lg: 8 },
+              textAlign: "center",
+            }}
+          >
             Choose your favorite category
           </Typography>
         </Grid>
@@ -135,10 +142,6 @@ const ChooseCategory = () => {
             alignItems: "center",
             color: "white",
             m: 2,
-            "&:hover": {
-              backgroundColor: "secondary.main",
-            },
-            transition: "background-color 0.3s ease",
           }}
         >
           Continue
