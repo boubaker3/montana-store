@@ -2,6 +2,7 @@ import { Button, CircularProgress, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { getOrders } from "./OrderApi";
 import OrderCard from "./OrderCard";
+import { Link } from "react-router-dom";
 
 export default function Orders() {
   const [loading, setLoading] = useState(false);
@@ -75,13 +76,46 @@ export default function Orders() {
           justifyContent="center"
           alignItems="center"
           textAlign="center"
+          rowGap={2}
+          sx={{
+            width: { xs: "100%", md: "80%", lg: "50%" },
+            backgroundColor: "#f5f5f5",
+            padding: "20px",
+            borderRadius: "32px",
+          }}
         >
           <Grid item xs={12}>
-            <Typography>you are not logged</Typography>
+            <Typography variant="h5" color="primary">
+              Oops! You're not logged in.
+            </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography>
-              please login to be able to have orders feature
+            <Typography variant="body1">
+              To access the orders feature and unlock exclusive offers, please
+              log in or create an account.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} mt={2}>
+            <Button
+              component={Link}
+              to="/auth/login"
+              variant="contained"
+              disableElevation
+              color="primary"
+              sx={{
+                fontSize: { xs: "14px", md: "14px", lg: "16px", xl: "18px" },
+                color: "white",
+              }}
+            >
+              Login
+            </Button>
+          </Grid>
+          <Grid item xs={12} mt={1} sx={{ color: "black" }}>
+            <Typography variant="body2">
+              Don't have an account?{" "}
+              <Link to="/auth/signup" style={{ color: "black" }}>
+                Sign up here.
+              </Link>
             </Typography>
           </Grid>
         </Grid>

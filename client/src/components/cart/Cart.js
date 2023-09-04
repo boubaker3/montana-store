@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useGetCart, useGetCartLength } from "./CartApi";
 import CartCard from "./CartCard";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -69,13 +70,46 @@ export default function Cart() {
           justifyContent="center"
           alignItems="center"
           textAlign="center"
+          rowGap={2}
+          sx={{
+            width: { xs: "100%", md: "80%", lg: "50%" },
+            backgroundColor: "#f5f5f5",
+            padding: "20px",
+            borderRadius: "32px",
+          }}
         >
           <Grid item xs={12}>
-            <Typography>you are not logged</Typography>
+            <Typography variant="h5" color="primary">
+              Oops! You're not logged in.
+            </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography>
-              please login to be able to have cart feature
+            <Typography variant="body1">
+              To access the cart feature and unlock exclusive offers, please log
+              in or create an account.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} mt={2}>
+            <Button
+              component={Link}
+              to="/auth/login"
+              variant="contained"
+              disableElevation
+              color="primary"
+              sx={{
+                fontSize: { xs: "14px", md: "14px", lg: "16px", xl: "18px" },
+                color: "white",
+              }}
+            >
+              Login
+            </Button>
+          </Grid>
+          <Grid item xs={12} mt={1} sx={{ color: "black" }}>
+            <Typography variant="body2">
+              Don't have an account?{" "}
+              <Link to="/auth/signup" style={{ color: "black" }}>
+                Sign up here.
+              </Link>
             </Typography>
           </Grid>
         </Grid>

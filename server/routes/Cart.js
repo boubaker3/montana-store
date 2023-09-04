@@ -9,26 +9,16 @@ router.route("/getCart").get(authenticateToken, (req, res) => {
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
 
-  if (page == null) {
-    Cart.find({ userid: userid })
-      .then((cart) => {
-        res.json(cart);
-      })
-      .catch((err) => {
-        res.status(400).json("Error: " + err);
-      });
-  } else {
-    Cart.find({ userid: userid })
-      .skip(startIndex)
-      .limit(limit)
-      .sort({ createdAt: -1 })
-      .then((cart) => {
-        res.json(cart);
-      })
-      .catch((err) => {
-        res.status(400).json("Error: " + err);
-      });
-  }
+  Cart.find({ userid: userid })
+    .skip(startIndex)
+    .limit(limit)
+    .sort({ createdAt: -1 })
+    .then((cart) => {
+      res.json(cart);
+    })
+    .catch((err) => {
+      res.status(400).json("Error: " + err);
+    });
 });
 
 router.route("/getCartlength").get(authenticateToken, (req, res) => {
@@ -46,6 +36,13 @@ router.route("/getCartlength").get(authenticateToken, (req, res) => {
 router.route("/addToCart").post(authenticateToken, async (req, res) => {
   const { productName, productImage, sellPrice, pid, userid } = req.body;
 
+  const cart = new Cart({
+    productName,
+    productImage,
+    sellPrice,
+    pid,
+    userid,
+  });
   // Check if the user already has 50 items in their cart
   Cart.countDocuments({ userid })
     .then((userCartCount) => {
@@ -53,20 +50,23 @@ router.route("/addToCart").post(authenticateToken, async (req, res) => {
         return res.json({ res: "Cart limit exceeded (maximum 50 items)" });
       }
 
-      const cart = new Cart({
-        productName,
-        productImage,
-        sellPrice,
-        pid,
-        userid,
-      });
-      cart
-        .save()
-        .then(() => {
-          res.json({ res: "added to cart successfully" });
+      Cart.find({ userid: userid, pid: pid })
+        .then((cartItems) => {
+          if (cartItems.length === 0) {
+            cart
+              .save()
+              .then(() => {
+                res.json({ res: "added to cart successfully" });
+              })
+              .catch((error) => {
+                res.status(400).json({ error });
+              });
+          } else {
+            res.json({ res: "already added to cart!" });
+          }
         })
-        .catch((error) => {
-          res.status(400).json({ error });
+        .catch((err) => {
+          res.status(400).json("Error: " + err);
         });
     })
     .catch((error) => {
