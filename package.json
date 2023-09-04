@@ -5,10 +5,11 @@
     "homepage": "https://montanastore.net/",
     "main": "server/index.js",
     "scripts": {
-      "build": "cd server && npm install  && cd ../client && npm install && npm run build",
+      "build": "NODE_ENV=production cd server && npm install && cd ../client && npm install && npm run build",
       "start": "node server/index.js",
       "test": "echo \"Error: no test specified\" && exit 1"
-    },
+    }
+    ,
     "repository": {
       "type": "git",
       "url": "git+https://github.com/boubaker3/montana.git"
