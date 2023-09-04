@@ -82,7 +82,7 @@ const ChooseCategory = () => {
           columnGap={2}
           m={1}
         >
-          <Typography variant="h5" sx={{ fontWeight: "bold", m: 4 }}>
+          <Typography variant="h6" sx={{ fontWeight: "bold", mt: {xs:2,sm:10,lg:8},textAlign:"center" }}>
             Choose your favorite category
           </Typography>
         </Grid>
