@@ -124,7 +124,7 @@ export default function Home() {
               backgroundColor: "primary.main",
               borderRadius: "32px",
               "&:hover": {
-                backgroundColor: "secondary.main", // Change to your desired hover color
+                backgroundColor: "primary.main", // Change to your desired hover color
               },
               transition: "background-color 0.3s ease",
             }}

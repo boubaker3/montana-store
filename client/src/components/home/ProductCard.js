@@ -148,10 +148,7 @@ export default function ProductCard(props) {
             display: "flex",
             textAlign: "center",
             fontSize: { xs: "12px", md: "14px", lg: "14px" },
-            "&:hover": {
-              backgroundColor: "secondary.main", // Change to your desired hover color
-            },
-            transition: "background-color 0.3s ease", }}
+           
         >
           <ShoppingCartIcon sx={{ color: "white" }} />
           Add to Cart

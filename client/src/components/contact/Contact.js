@@ -137,10 +137,7 @@ export default function Contact() {
                 color: "white",
                 fontFamily: "montserrat",
                 fontSize: { xs: "12px", md: "14px", lg: "14px" },
-                "&:hover": {
-                  backgroundColor: "secondary.main", // Change to your desired hover color
-                },
-                transition: "background-color 0.3s ease",
+           
               }}
             >
               Submit
