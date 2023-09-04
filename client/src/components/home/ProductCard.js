@@ -142,13 +142,13 @@ export default function ProductCard(props) {
             width: "80%",
             color: "white",
             borderRadius: "32px",
-             justifyContent: "center",
+            justifyContent: "center",
             marginLeft: "auto",
             marginRight: "auto",
             display: "flex",
             textAlign: "center",
             fontSize: { xs: "12px", md: "14px", lg: "14px" },
-           
+          }}
         >
           <ShoppingCartIcon sx={{ color: "white" }} />
           Add to Cart
