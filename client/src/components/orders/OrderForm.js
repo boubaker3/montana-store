@@ -162,7 +162,6 @@ export default function OrderForm({
       setOrderSaved(true);
     } catch (error) {
       setLoading(false);
-      console.log(error);
     }
   };
 
@@ -172,8 +171,7 @@ export default function OrderForm({
       paymentResult.payerID,
       paymentResult.paymentSource
     );
-    console.log(paymentResult);
-    setPaymentComplete(true);
+     setPaymentComplete(true);
     console.log("Payment successful!");
   };
 

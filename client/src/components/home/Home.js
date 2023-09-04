@@ -41,7 +41,6 @@ export default function Home() {
   }
   useEffect(() => {
     fetchProducts();
-    console.log(categoryId);
   }, [categoryId]);
 
   useEffect(() => {
