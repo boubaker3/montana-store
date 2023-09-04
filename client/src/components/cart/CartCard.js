@@ -27,7 +27,7 @@ export default function CartCard(props) {
         >
           <Typography
             sx={{
-              fontSize: { xs: "12px", md: "16px" },
+              fontSize: { xs: "12px",md: "14px",xl:"16px" },
               color: "gray",
               textAlign: "end",
             }}
@@ -53,11 +53,12 @@ export default function CartCard(props) {
             src={props.cart.productImage}
             sx={{
               borderRadius: "32px",
-              width: " 100px",
-              height: " 100px",
+              width: { xs: "150px", lg: " 100px" },
+              height:  { xs: "150px", lg: " 100px" },
               m: { xs: "0 auto", md: 0 },
             }}
           ></Avatar>
+          
         </Grid>
 
         <Grid
@@ -77,19 +78,19 @@ export default function CartCard(props) {
           }}
         >
           <Typography
-            sx={{ fontSize: { xs: "12px", md: "16px" }, color: "gray" }}
+            sx={{ fontSize: { xs: "12px", md: "14px",xl:"16px" }, color: "gray" }}
           >
             you have added
           </Typography>
           <Typography
             color="primary"
-            sx={{ fontSize: { xs: "12px", md: "16px" } }}
+            sx={{ fontSize: { xs: "12px", md: "14px",xl:"16px" } }}
           >
             {props.cart.productName.substring(0, 16) + "..."}
           </Typography>
 
           <Typography
-            sx={{ fontSize: { xs: "12px", md: "16px" }, color: "gray" }}
+            sx={{ fontSize: { xs: "12px", md: "14px",xl:"16px" }, color: "gray" }}
           >
             to your cart
           </Typography>
@@ -104,14 +105,14 @@ export default function CartCard(props) {
           justifyContent="center"
           alignItems="center"
         >
-          <Typography sx={{ fontSize: { xs: "12px", md: "18px" } }}>
+          <Typography sx={{ fontSize: { xs: "12px",md: "14px",xl:"16px"} }}>
             {props.cart.sellPrice + "$"}
           </Typography>
 
           <Button
             LinkComponent={Link}
             to={`/product?pid=${props.cart.pid}`}
-            sx={{ fontSize: { xs: "8px", md: "16px" } }}
+            sx={{ fontSize: { xs: "8px", md: "14px",xl:"16px" } }}
             color="primary"
           >
             To Details

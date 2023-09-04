@@ -162,9 +162,9 @@ export default function Product() {
 
   return (
     <Grid container spacing={3} p={4} justifyContent="center">
-      <Typography variant="h6">{product?.productNameEn}</Typography>{" "}
+      <Typography variant="h6" textAlign="center">{product?.productNameEn}</Typography>{" "}
       <Grid container mt={2} p={2} columnGap={4}>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6} xl={4}>
           <Avatar
             src={productImage}
             sx={{
@@ -194,7 +194,7 @@ export default function Product() {
                 alt={`Product ${index}`}
                 sx={{
                   width: "60px",
-                  height: "auto",
+                  height: "60px",
                   borderRadius: 0,
                   "&:hover": {
                     opacity: "0.5",

@@ -176,7 +176,7 @@ export default function OrderForm({
   };
 
   const onError = (error) => {
-    console.error("Payment error:");
+    console.error("Payment error");
   };
 
   const [index, setIndex] = useState(1);

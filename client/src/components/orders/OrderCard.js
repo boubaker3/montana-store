@@ -24,7 +24,7 @@ export default function OrderCard(props) {
         >
           <Typography
             sx={{
-              fontSize: { xs: "12px", md: "16px" },
+              fontSize: { xs: "12px", md: "14px", xl: "16px" },
               color: "gray",
               textAlign: "end",
             }}
@@ -41,8 +41,9 @@ export default function OrderCard(props) {
             sx={{
               borderRadius: "32px",
               width: { xs: "150px", lg: " 100px" },
-              height: " 100px",
+              height: { xs: "150px", lg: " 100px" },
               m: { xs: "0 auto", md: 0 },
+              objectFit: "cover",
             }}
           ></Avatar>
         </Grid>
@@ -62,13 +63,16 @@ export default function OrderCard(props) {
           }}
         >
           <Typography
-            sx={{ fontSize: { xs: "12px", md: "16px" }, color: "gray" }}
+            sx={{
+              fontSize: { xs: "12px", md: "14px", xl: "16px" },
+              color: "gray",
+            }}
           >
             you have ordered
           </Typography>
           <Typography
             color="primary"
-            sx={{ fontSize: { xs: "12px", md: "16px" } }}
+            sx={{ fontSize: { xs: "12px", md: "14px", xl: "16px" } }}
           >
             {props.order.productName.substring(0, 24) + "..."}
           </Typography>
@@ -82,10 +86,10 @@ export default function OrderCard(props) {
           justifyContent="center"
           alignItems="center"
         >
-          <Typography sx={{ fontSize: { xs: "12px", md: "18px" } }}>
+          <Typography sx={{ fontSize: { xs: "12px", md: "14px", xl: "16px" } }}>
             {"quantity: " + props.order.quantity}
           </Typography>
-          <Typography sx={{ fontSize: { xs: "12px", md: "18px" } }}>
+          <Typography sx={{ fontSize: { xs: "12px", md: "14px", xl: "16px" } }}>
             {"price: " + props.order.price + "$"}
           </Typography>
 
@@ -93,7 +97,7 @@ export default function OrderCard(props) {
             onClick={() => {
               setShowDetails(showDetails ? true : !showDetails);
             }}
-            sx={{ fontSize: { xs: "8px", md: "16px" } }}
+            sx={{ fontSize: { xs: "12px", md: "14px", xl: "16px" } }}
             color="primary"
           >
             see details

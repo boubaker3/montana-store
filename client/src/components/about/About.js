@@ -29,7 +29,12 @@ export default function About() {
             objectFit: "cover",
           }}
         ></Avatar>
-        <Typography ml={1}>Boubaker Achkhbar</Typography>
+        <Typography
+          ml={1}
+          sx={{ fontSize: { xs: "12px", md: "14px", xl: "16px" } }}
+        >
+          Boubaker Achkhbar
+        </Typography>
       </Grid>
       <Grid item xs={12} lg={11} xl={8} columnGap={2} mt={2} p={2}>
         <Grid
@@ -57,7 +62,13 @@ export default function About() {
                     src={service.image}
                   ></Avatar>
                   <Typography variant="h6">{service.title}</Typography>
-                  <Typography sx={{ mt: 2 }} variant="body1">
+                  <Typography
+                    sx={{
+                      mt: 2,
+                      fontSize: { xs: "12px", md: "14px", xl: "16px" },
+                    }}
+                    variant="body1"
+                  >
                     {service.description}
                   </Typography>
                 </Box>
@@ -65,19 +76,6 @@ export default function About() {
             </Grid>
           ))}
         </Grid>
-
-        <Typography variant="body1" mt={4}>
-          We are passionate about electronics,clothes,sports
-          equipment,accessoires,jewerly... and strive to provide high-quality
-          products to enrich your life.
-        </Typography>
-        <Typography variant="body1" mt={2} textAlign="center">
-          Explore our{" "}
-          <a href="/" style={{ color: "orange" }}>
-            product catalog
-          </a>{" "}
-          to discover unique and authentic items.
-        </Typography>
       </Grid>
     </Grid>
   );

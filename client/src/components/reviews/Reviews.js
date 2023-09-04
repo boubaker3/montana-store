@@ -12,6 +12,7 @@ import {
 import { addReview, getReviews } from "./ReviewsApi";
 import ReviewsCard from "./ReviewCard";
 import { useNavigate } from "react-router-dom";
+import "./reviews.css";
 export default function Reviews() {
   const [reviews, setReviews] = useState([]);
   const [review, setReview] = useState("");
@@ -97,7 +98,7 @@ export default function Reviews() {
             backgroundColor: "#F0F0F0",
             borderRadius: "32px",
             display: "flex",
-            mt: 4,
+            mt: 2,
             p: 4,
           }}
         >
@@ -167,17 +168,19 @@ export default function Reviews() {
 
       <Grid
         container
-        p={4}
-        spacing={4}
+        p={2}
+        spacing={2}
         wrap="nowrap"
+        className="reviewsContainer"
         sx={{
           overflowX: "auto",
           scrollbarWidth: "none",
           "-ms-overflow-style": "none",
           "&::-webkit-scrollbar": {
             width: 0,
+            height: 0,
           },
-          justifyContent: { xs: "start", md: "center" },
+          justifyContent: { xs: "start", xl: "center" },
         }}
       >
         {reviews && reviews.length === 0 && !loading ? (
@@ -193,7 +196,7 @@ export default function Reviews() {
             </Grid>
           ))}
       </Grid>
-      <Grid container justifyContent="center" mt={2}>
+      <Grid container justifyContent="center" >
         <Button
           variant="outlined"
           disabled={pageNum === 1}

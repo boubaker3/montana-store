@@ -125,7 +125,7 @@ export default function Contact() {
               multiline
             />
           </Grid>
-          <Grid item xs={12} p={4}>
+          <Grid item xs={12} sx={{ p: { xs: 2, xl: 4 } }}>
             <Button
               disableElevation
               fullWidth
@@ -177,7 +177,7 @@ export default function Contact() {
           </Typography>
         </form>
       </Grid>
-      <Grid container justifyContent="center" columnGap={2} mb={2}>
+      <Grid container justifyContent="center" columnGap={2}>
         <Grid item xs={12} textAlign="center">
           <Typography variant="h6">Get in touch:</Typography>
         </Grid>

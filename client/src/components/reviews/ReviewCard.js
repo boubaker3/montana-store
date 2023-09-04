@@ -1,13 +1,6 @@
-import {
-  Avatar,
-  Card,
-  Grid,
-  Rating,
-  Typography,
-} from "@mui/material";
+import { Avatar, Card, Grid, Rating, Typography } from "@mui/material";
 import React from "react";
 import profile from "../assets/profile.png";
-import "./reviews.css";
 export default function ReviewsCard(props) {
   return (
     <Card
@@ -45,7 +38,7 @@ export default function ReviewsCard(props) {
         </Grid>
 
         <Grid item xs={12} sx={{ color: "gray", m: 2 }}>
-          <Typography sx={{ fontSize: { xs: "12px", md: "16px" } }}>
+          <Typography sx={{ fontSize: { xs: "12px", md: "14px", xl: "16px" } }}>
             {props.review.review}
           </Typography>
         </Grid>
