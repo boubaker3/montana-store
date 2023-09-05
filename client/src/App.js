@@ -57,7 +57,7 @@ function App() {
     if (!accessToken) {
       localStorage.setItem("accessToken", CJ_ACESS_TOKEN);
     }
-  }, []);
+  });
 
   return (
     <ThemeProvider theme={theme}>
