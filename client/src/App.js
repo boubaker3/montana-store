@@ -63,39 +63,25 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App" style={{ overflowX: "hidden" }}>
         <Header />
-        {!accessToken && (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              justifyContent: "center",
-              alignItems: "center",
-              display: "flex",
-            }}
-          >
-            <CircularProgress />
-          </div>
-        )}
-        {accessToken && (
-          <>
-            {" "}
-            <Routes>
-              <Route path="/auth" element={<Auth />}>
-                <Route path="signup" element={<Signup />} />
-                <Route path="login" element={<Login />} />
-              </Route>{" "}
-              <Route path="/" element={<Main />}>
-                <Route path="" element={<Home />} />
-                <Route path="orders" element={<Orders />} />
-                <Route path="reviews" element={<Reviews />} />
-                <Route path="contact" element={<Contact />} />
-                <Route path="about" element={<About />} />
-                <Route path="cart" element={<Cart />} />
-                <Route path="product" element={<Product />} />
-              </Route>
-            </Routes>
-          </>
-        )}
+
+        <>
+          {" "}
+          <Routes>
+            <Route path="/auth" element={<Auth />}>
+              <Route path="signup" element={<Signup />} />
+              <Route path="login" element={<Login />} />
+            </Route>{" "}
+            <Route path="/" element={<Main />}>
+              <Route path="" element={<Home />} />
+              <Route path="orders" element={<Orders />} />
+              <Route path="reviews" element={<Reviews />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="about" element={<About />} />
+              <Route path="cart" element={<Cart />} />
+              <Route path="product" element={<Product />} />
+            </Route>
+          </Routes>
+        </>
       </div>
     </ThemeProvider>
   );
