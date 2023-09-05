@@ -18,7 +18,8 @@ export const getProducts = async (pageNum, categoryId, customSearch) => {
       &categoryId=${categoryId}&productNameEn=${productNameEn}&pageSize=20`,
       {
         headers: {
-          "CJ-Access-Token": process.env.CJ_ACCESS_TOKEN,
+          "CJ-Access-Token":
+            "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMTIxNSIsInR5cGUiOiJBQ0NFU1NfVE9LRU4iLCJzdWIiOiJicUxvYnFRMGxtTm55UXB4UFdMWnlrVmkwQUdLWjBaN3dodUdYbmpGcFVXUW9vTlBYU3BubVRaSDArZ08vclZCMFVNTVJEMjNrY1JUeWJsWDlvekordEc3N1FucWdLVXV3VHIrcW5OcEdtbEg1c2JXNTNhRmVFSWZ6YlF3bzBWSHF5TVNQZk0wNmg5Qm5kVjE1dU8zWFdzcEx5OWNvaXpUVkNrbHVyUVhTTlROWDlNR2t6SEovUlQ0V0t3ZlVTcjVMZ0w0eFZ2MHZlbU90U3h6VmhwdU1scXFyTGxJeVRETWRFK3RNaFRhM0FBZGZONkpBNDAwOElxa2xGMVpTeWFBVGp0dE5nUklRMkxHMVkvQ3JZRTRxWkRaZGFBa1BqTHNEdFF5RDJta0JDZXlCWmhSb21Vdy9zQkRCL0ZVZFFnLyJ9.jn2ilGc9xKDcmz7_8hgC77GCMXZ72kixT0iooR6-GWY",
         },
       }
     );
