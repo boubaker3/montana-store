@@ -72,7 +72,7 @@ export default function ProductCard(props) {
         sx={{
           borderRadius: "32px",
           width: " 100%",
-          height: "250px",
+          height: "200px",
           objectFit: "cover",
         }}
       ></Avatar>
@@ -85,7 +85,7 @@ export default function ProductCard(props) {
           }}
           variant="h6"
         >
-          {props.product.productNameEn.substring(0, 16) + "..."}
+          {String(props.product.productNameEn).substring(0, 16) + "..."}
         </Typography>
         <Box>
           <Box display="flex" columnGap={2}>
@@ -104,7 +104,7 @@ export default function ProductCard(props) {
               variant="h6"
               component="div"
             >
-              {props.product.categoryName.substring(0, 16)}
+              {String(props.product.categoryName).substring(0, 16)}
             </Typography>
           </Box>
 
