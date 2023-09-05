@@ -104,11 +104,11 @@ function App() {
           <>
             {" "}
             <Routes>
+              <Route path="/auth" element={<Auth />}>
+                <Route path="signup" element={<Signup />} />
+                <Route path="login" element={<Login />} />
+              </Route>{" "}
               <Route path="/" element={<Main />}>
-                <Route path="/auth" element={<Auth />}>
-                  <Route path="signup" element={<Signup />} />
-                  <Route path="login" element={<Login />} />
-                </Route>{" "}
                 <Route path="" element={<Home />} />
                 <Route path="orders" element={<Orders />} />
                 <Route path="reviews" element={<Reviews />} />

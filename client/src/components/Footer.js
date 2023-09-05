@@ -102,7 +102,7 @@ const Footer = ({ navigateToCategory }) => {
       </Grid>
       <Grid container justifyContent="center" sx={{ mt: 3 }}>
         <IconButton
-          href="https://www.facebook.com/montana store"
+          href="https://www.facebook.com/montana.store.official"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook"
@@ -110,14 +110,14 @@ const Footer = ({ navigateToCategory }) => {
           <FacebookIcon fontSize="large" />
         </IconButton>
         <IconButton
-              href="mailto:montanastore@gmail.com"
+              href="mailto:montanastore23@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >
               <EmailIcon fontSize="large"/>
             </IconButton>
         <IconButton
-          href="https://www.instagram.com/montana store"
+          href="https://www.instagram.com/montana_store_official"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
