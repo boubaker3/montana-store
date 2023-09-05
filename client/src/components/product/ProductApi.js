@@ -6,7 +6,7 @@ export const getProduct = async (pid) => {
       `https://developers.cjdropshipping.com/api2.0/v1/product/query?pid=${pid}`,
       {
         headers: {
-          "CJ-Access-Token": accessToken,
+          "CJ-Access-Token": process.env.ACCESS_TOKEN,
         },
       }
     );
@@ -23,7 +23,7 @@ export const getProductComments = async (pid, pageNum) => {
       `https://developers.cjdropshipping.com/api2.0/v1/product/comments?pid=${pid}&pageNum=${pageNum} `,
       {
         headers: {
-          "CJ-Access-Token": accessToken,
+          "CJ-Access-Token": process.env.ACCESS_TOKEN,
         },
       }
     );
@@ -41,7 +41,7 @@ export const getInventory = async (vid) => {
       `https://developers.cjdropshipping.com/api2.0/v1/product/stock/queryByVid?vid=${vid}`,
       {
         headers: {
-          "CJ-Access-Token": accessToken,
+          "CJ-Access-Token": process.env.ACCESS_TOKEN,
         },
       }
     );
@@ -75,7 +75,7 @@ export const getLogisticOptions = async (
       {
         headers: {
           "Content-Type": "application/json",
-          "CJ-Access-Token": accessToken,
+          "CJ-Access-Token": process.env.ACCESS_TOKEN,
         },
       }
     );

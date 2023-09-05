@@ -42,7 +42,6 @@ function App() {
   const currentPath = location.pathname;
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (currentPath === "/auth/login" || currentPath === "/auth/signup") {
@@ -51,75 +50,32 @@ function App() {
       }
     }
   }, [currentPath, token, navigate]);
-  const accessToken = localStorage.getItem("accessToken");
-  const refreshToken = localStorage.getItem("refreshToken");
-  useEffect(() => {
-    const handleAccessToken = async () => {
-      try {
-        if (!accessToken) {
-          await getAccessToken();
-        } else {
-          const accessTokenExpiration = new Date(
-            localStorage.getItem("accessTokenExpiryDate")
-          );
-          const refreshTokenExpiration = new Date(
-            localStorage.getItem("accessTokenExpiryDate")
-          );
 
-          if (accessTokenExpiration > new Date()) {
-            if (refreshTokenExpiration > new Date()) {
-              await getAccessToken();
-            } else {
-              await getRefreshToken(refreshToken);
-            }
-          }
-        }
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error while getting access token:");
-      }
-    };
-
-    handleAccessToken();
-  }, [accessToken, refreshToken]);
+  useEffect(() => {}, []);
 
   return (
     <ThemeProvider theme={theme}>
       <div className="App" style={{ overflowX: "hidden" }}>
         <Header />
-        {isLoading && (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              justifyContent: "center",
-              alignItems: "center",
-              display: "flex",
-            }}
-          >
-            <CircularProgress />
-          </div>
-        )}
-        {!isLoading && (
-          <>
-            {" "}
-            <Routes>
-              <Route path="/auth" element={<Auth />}>
-                <Route path="signup" element={<Signup />} />
-                <Route path="login" element={<Login />} />
-              </Route>{" "}
-              <Route path="/" element={<Main />}>
-                <Route path="" element={<Home />} />
-                <Route path="orders" element={<Orders />} />
-                <Route path="reviews" element={<Reviews />} />
-                <Route path="contact" element={<Contact />} />
-                <Route path="about" element={<About />} />
-                <Route path="cart" element={<Cart />} />
-                <Route path="product" element={<Product />} />
-              </Route>
-            </Routes>
-          </>
-        )}
+
+        <>
+          {" "}
+          <Routes>
+            <Route path="/auth" element={<Auth />}>
+              <Route path="signup" element={<Signup />} />
+              <Route path="login" element={<Login />} />
+            </Route>{" "}
+            <Route path="/" element={<Main />}>
+              <Route path="" element={<Home />} />
+              <Route path="orders" element={<Orders />} />
+              <Route path="reviews" element={<Reviews />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="about" element={<About />} />
+              <Route path="cart" element={<Cart />} />
+              <Route path="product" element={<Product />} />
+            </Route>
+          </Routes>
+        </>
       </div>
     </ThemeProvider>
   );
