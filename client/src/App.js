@@ -51,7 +51,9 @@ function App() {
     }
   }, [currentPath, token, navigate]);
 
-   
+  useEffect(() => {
+    console.log(process.env.REACT_APP_PAYPAL_CLIENT_ID);
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
