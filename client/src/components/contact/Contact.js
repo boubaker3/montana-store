@@ -84,7 +84,7 @@ export default function Contact() {
             sx={commonStyle}
           >
             <EmailIcon fontSize="large" />
-            <Typography ml={2}>montanastore@gmail.com</Typography>
+            <Typography ml={2}>montanastore23@gmail.com</Typography>
           </IconButton>
         </Grid>
         <Grid item xs={12} mt={4}>
