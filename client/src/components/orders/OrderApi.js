@@ -47,7 +47,7 @@ export const createOrder = async (
       {
         headers: {
           "Content-Type": "application/json",
-          "CJ-Access-Token": process.env.CJ_ACCESS_TOKEN,
+          "CJ-Access-Token": accessToken,
         },
       }
     );
@@ -109,7 +109,7 @@ export const getOrder = async (orderId) => {
       `https://developers.cjdropshipping.com/api2.0/v1/shopping/order/getOrderDetail?orderId=${orderId}`,
       {
         headers: {
-          "CJ-Access-Token": process.env.CJ_ACCESS_TOKEN,
+          "CJ-Access-Token": accessToken,
         },
       }
     );

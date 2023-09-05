@@ -18,7 +18,7 @@ export const getProducts = async (pageNum, categoryId, customSearch) => {
       &categoryId=${categoryId}&productNameEn=${productNameEn}&pageSize=20`,
       {
         headers: {
-          "CJ-Access-Token": process.env.CJ_ACCESS_TOKEN,
+          "CJ-Access-Token": accessToken,
         },
       }
     );
@@ -34,7 +34,7 @@ export const getCategories = async () => {
       `https://developers.cjdropshipping.com/api2.0/v1/product/getCategory`,
       {
         headers: {
-          "CJ-Access-Token": process.env.CJ_ACCESS_TOKEN,
+          "CJ-Access-Token": accessToken,
         },
       }
     );
