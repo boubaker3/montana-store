@@ -54,34 +54,54 @@ function App() {
   }, [currentPath, token, navigate]);
   const accessToken = localStorage.getItem("accessToken");
   useEffect(() => {
+    const handleCjToken = async () => {
+      await localStorage.setItem("accessToken", CJ_ACESS_TOKEN);
+      setIsLoading(false);
+    };
     if (!accessToken) {
-      localStorage.setItem("accessToken", CJ_ACESS_TOKEN);
+      handleCjToken();
+    } else {
+      setIsLoading(false);
     }
-  });
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
       <div className="App" style={{ overflowX: "hidden" }}>
         <Header />
-
-        <>
-          {" "}
-          <Routes>
-            <Route path="/auth" element={<Auth />}>
-              <Route path="signup" element={<Signup />} />
-              <Route path="login" element={<Login />} />
-            </Route>{" "}
-            <Route path="/" element={<Main />}>
-              <Route path="" element={<Home />} />
-              <Route path="orders" element={<Orders />} />
-              <Route path="reviews" element={<Reviews />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="about" element={<About />} />
-              <Route path="cart" element={<Cart />} />
-              <Route path="product" element={<Product />} />
-            </Route>
-          </Routes>
-        </>
+        {isLoading && (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              justifyContent: "center",
+              alignItems: "center",
+              display: "flex",
+            }}
+          >
+            <CircularProgress />
+          </div>
+        )}
+        {!isLoading && (
+          <>
+            {" "}
+            <Routes>
+              <Route path="/auth" element={<Auth />}>
+                <Route path="signup" element={<Signup />} />
+                <Route path="login" element={<Login />} />
+              </Route>{" "}
+              <Route path="/" element={<Main />}>
+                <Route path="" element={<Home />} />
+                <Route path="orders" element={<Orders />} />
+                <Route path="reviews" element={<Reviews />} />
+                <Route path="contact" element={<Contact />} />
+                <Route path="about" element={<About />} />
+                <Route path="cart" element={<Cart />} />
+                <Route path="product" element={<Product />} />
+              </Route>
+            </Routes>
+          </>
+        )}
       </div>
     </ThemeProvider>
   );
