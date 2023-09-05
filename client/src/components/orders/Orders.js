@@ -11,8 +11,7 @@ export default function Orders() {
   const user = JSON.parse(localStorage.getItem("user"));
   const handleOrders = async () => {
     setLoading(true);
-    console.log(user);
-    if (user) {
+     if (user) {
       try {
         const response = await getOrders(user._id, pageNum);
         setOrders(response);
