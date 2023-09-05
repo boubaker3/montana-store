@@ -51,9 +51,7 @@ function App() {
     }
   }, [currentPath, token, navigate]);
 
-  useEffect(() => {
-    console.log(process.env.CJ_ACCESS_TOKEN)
-  }, []);
+   
 
   return (
     <ThemeProvider theme={theme}>
