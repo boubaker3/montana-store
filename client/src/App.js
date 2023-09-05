@@ -54,6 +54,7 @@ function App() {
   }, [currentPath, token, navigate]);
   const accessToken = localStorage.getItem("accessToken");
   useEffect(() => {
+    
     const handleCjToken = async () => {
       await localStorage.setItem("accessToken", CJ_ACESS_TOKEN);
       setIsLoading(false);
