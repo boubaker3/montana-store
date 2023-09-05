@@ -38,12 +38,24 @@ export default function Auth() {
 
   return (
     <Box>
-      <Grid container height="80vh" justifyContent="center" alignItems="center">
-        <Grid xs={12}>
-          <Typography variant="h4" textAlign="center">
-            {value == 0 ? "Sign in to Montana" : "Create an account"}
-          </Typography>{" "}
+      <Grid container height="80vh" justifyContent="center">
+        <Grid xs={8} textAlign="center">
+          <Typography variant="h4">Welcome to montana </Typography>{" "}
+          <Typography color="gray" m={2}>
+            {value === 0 ? (
+              <span>
+                Ready to embark on a shopping adventure? <br />Sign in now to unlock a
+                world  of convenience, savings, and more!
+              </span>
+            ) : (
+              <span>
+                Ready to embark on a shopping adventure?  <br />Sign up now to unlock a
+                world of convenience, savings, and more!
+              </span>
+            )}
+          </Typography>
         </Grid>
+
         <Grid
           item
           xs={12}
@@ -59,7 +71,7 @@ export default function Auth() {
               justifyContent: "center",
               alignItems: "center",
               display: "flex",
-              m: 4,
+              m: 2,
             }}
           >
             <Tabs
@@ -99,7 +111,7 @@ export default function Auth() {
               ))}
             </Tabs>
           </Box>
-          <Box sx={{height:"400px"}}>
+          <Box sx={{ height: "400px" }}>
             <Outlet />
           </Box>
         </Grid>
