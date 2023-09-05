@@ -41,6 +41,7 @@ export default function Home() {
   }
   useEffect(() => {
     fetchProducts();
+    console.log(categoryId);
   }, [categoryId]);
 
   useEffect(() => {
@@ -80,6 +81,7 @@ export default function Home() {
 
   const handleSubcategoryClick = (subcategory) => {
     setPageNum(1);
+    setCustomSearch("");
     setCategoryId(subcategory.categorySecondId);
     setCategory(subcategory.categorySecondName);
     setAnchorEl(null);
@@ -125,6 +127,7 @@ export default function Home() {
               borderRadius: "32px",
               "&:hover": {
                 backgroundColor: "primary.main", // Change to your desired hover color
+                opacity: "0.8",
               },
               transition: "background-color 0.3s ease",
             }}
@@ -212,7 +215,12 @@ export default function Home() {
         </Button>
       </Grid>
       {products && products.length > 0 && (
-        <Footer navigateToCategory={(cId) => setCategoryId(cId)} />
+        <Footer
+          navigateToCategory={(cId) => {
+            setPageNum(1);
+            setCategoryId(cId);
+          }}
+        />
       )}
     </Grid>
   );

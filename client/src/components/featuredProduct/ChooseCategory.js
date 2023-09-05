@@ -116,7 +116,10 @@ const ChooseCategory = () => {
                 backgroundColor:
                   selectedCategory === category ? "secondary.main" : "#F0F0F0",
                 color: selectedCategory === category ? "white" : "inherit",
-               
+                "&:hover": {
+                  backgroundColor: "primary.main",
+                },
+                transition: "background-color 0.3s ease",
               }}
             >
               {category}

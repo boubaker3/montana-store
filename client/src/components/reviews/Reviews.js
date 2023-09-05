@@ -86,8 +86,13 @@ export default function Reviews() {
       justifyContent="center"
       className="reviewsContainer"
     >
-      <Grid item xs={12} textAlign="center">
-        <Typography variant="h4">your reviews</Typography>
+      <Grid item xs={12} justifyContent="center" display="flex">
+        <Typography variant="h4">Reviews</Typography>
+      </Grid>
+      <Grid item xs={12} justifyContent="center" display="flex">
+        <Typography color="gray">
+          dont hesitate to send us you feedbacks and experiences with our store.
+        </Typography>
       </Grid>
       <Grid container justifyContent="center">
         <Grid
@@ -139,7 +144,6 @@ export default function Reviews() {
               m: "12px auto",
               borderRadius: "38px",
               fontSize: { xs: "12px", md: "14px", xl: "16px" },
-             
             }}
           >
             share review
@@ -193,7 +197,7 @@ export default function Reviews() {
             </Grid>
           ))}
       </Grid>
-      <Grid container justifyContent="center" >
+      <Grid container justifyContent="center">
         <Button
           variant="outlined"
           disabled={pageNum === 1}

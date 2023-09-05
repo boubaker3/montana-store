@@ -10,7 +10,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import EmailIcon from "@mui/icons-material/Email";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Logo from "./assets/logo.png"; // Replace with your logo image
 
@@ -110,13 +110,12 @@ const Footer = ({ navigateToCategory }) => {
           <FacebookIcon fontSize="large" />
         </IconButton>
         <IconButton
-          href="https://www.twitter.com/montana store"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Twitter"
-        >
-          <TwitterIcon fontSize="large" />
-        </IconButton>
+              href="mailto:montanastore@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <EmailIcon fontSize="large"/>
+            </IconButton>
         <IconButton
           href="https://www.instagram.com/montana store"
           target="_blank"

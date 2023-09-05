@@ -6,10 +6,10 @@ export default function ReviewsCard(props) {
     <Card
       sx={{
         width: { md: "350px" },
+        height: { xs: "300px", lg: "260px", xl: "350px" },
         boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
         borderRadius: "38px",
         padding: "20px 10px 10px 20px ",
-        marginTop: "20px",
       }}
     >
       <Grid container justifyContent="center">

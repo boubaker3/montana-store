@@ -4,12 +4,16 @@ import {
   CircularProgress,
   Grid,
   Typography,
-  TextField,
   FormControlLabel,
   Checkbox,
+  OutlinedInput,
+  InputAdornment,
 } from "@mui/material";
 import { signup } from "./AuthApi";
 import RegistrationTerms from "./RegistrationTerms";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import EmailIcon from "@mui/icons-material/Email";
+import LockIcon from "@mui/icons-material/Lock";
 
 const initialFormValues = {
   username: "",
@@ -47,7 +51,7 @@ export default function Signup() {
       return;
     }
     if (!agreed) {
-      setError("agree on terms and conditions.");
+      setError("Agree on terms and conditions.");
       return;
     }
     try {
@@ -77,30 +81,52 @@ export default function Signup() {
         <form onSubmit={handleSubmit} autoComplete="off">
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <TextField
+              <OutlinedInput
                 fullWidth
                 onChange={handleChange}
                 name="username"
                 placeholder="Username"
                 value={formData.username}
                 autoComplete="off"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <AccountCircleIcon />
+                  </InputAdornment>
+                }
+                sx={{
+                  backgroundColor: "#F0F0F0",
+                  "& fieldset": { border: "none" },
+                }}
+                inputProps={{
+                  autoComplete: "new-password", // Prevent auto-fill
+                }}
               />
             </Grid>
 
             <Grid item xs={12}>
-              <TextField
+              <OutlinedInput
                 fullWidth
                 onChange={handleChange}
                 name="email"
-                id="input"
                 placeholder="Email"
                 value={formData.email}
                 autoComplete="off"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <EmailIcon />
+                  </InputAdornment>
+                }
+                sx={{
+                  backgroundColor: "#F0F0F0",
+                  "& fieldset": { border: "none" },
+                }}
+                inputProps={{
+                  autoComplete: "new-password", // Prevent auto-fill
+                }}
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                id="input"
+              <OutlinedInput
                 fullWidth
                 type="password"
                 onChange={handleChange}
@@ -108,6 +134,18 @@ export default function Signup() {
                 value={formData.password}
                 placeholder="Password"
                 autoComplete="off"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <LockIcon />
+                  </InputAdornment>
+                }
+                sx={{
+                  backgroundColor: "#F0F0F0",
+                  "& fieldset": { border: "none" },
+                }}
+                inputProps={{
+                  autoComplete: "new-password", // Prevent auto-fill
+                }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -116,10 +154,7 @@ export default function Signup() {
                 onChange={(e) => setIsAgreed(e.target.checked)}
                 control={<Checkbox />}
                 label={
-                  <Typography
-                    sx={{ textDecoration: "underline" }}
-                    onClick={() => setRegistrationTerms(true)}
-                  >
+                  <Typography onClick={() => setRegistrationTerms(true)}>
                     Agree on terms
                   </Typography>
                 }
@@ -144,7 +179,7 @@ export default function Signup() {
                   color: "white",
                   borderRadius: "38px",
                   fontSize: { xs: "12px", md: "12px", lg: "14px" },
-
+                  
                 }}
               >
                 Signup
@@ -155,7 +190,6 @@ export default function Signup() {
             </Grid>
             {isLoading && (
               <Grid container justifyContent="center">
-                {" "}
                 <CircularProgress color="primary" />
               </Grid>
             )}
@@ -166,7 +200,7 @@ export default function Signup() {
         <Grid xs={12} md={6}>
           <RegistrationTerms setOnClose={() => setRegistrationTerms(false)} />
         </Grid>
-      )}{" "}
+      )}
     </Grid>
   );
 }

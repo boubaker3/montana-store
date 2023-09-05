@@ -6,10 +6,14 @@ import {
   FormControlLabel,
   Checkbox,
   Typography,
-  TextField,
+  OutlinedInput,
+  InputAdornment,
 } from "@mui/material";
 import { login } from "./AuthApi";
 import RegistrationTerms from "./RegistrationTerms";
+import EmailIcon from "@mui/icons-material/Email";
+import LockIcon from "@mui/icons-material/Lock";
+
 const initialFormValues = {
   email: "",
   password: "",
@@ -40,7 +44,6 @@ export default function Login() {
         localStorage.setItem("user", JSON.stringify(data.user));
         window.location.href = "/";
       } else {
-        // Handle user not found scenario
         setIsLoading(false);
         setError("User not found or invalid password");
       }
@@ -56,22 +59,47 @@ export default function Login() {
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <TextField
+              <OutlinedInput
                 fullWidth
                 onChange={handleChange}
                 name="email"
+                type="email"
                 placeholder="Email"
                 value={formData.email}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <EmailIcon />
+                  </InputAdornment>
+                }
+                sx={{
+                  backgroundColor: "#F0F0F0  ",
+                  "& fieldset": { border: "none" },
+                }}
+                inputProps={{
+                  autoComplete: "new-email-field",
+                }}
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
+              <OutlinedInput
                 fullWidth
                 type="password"
                 onChange={handleChange}
                 name="password"
                 value={formData.password}
                 placeholder="Password"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <LockIcon />
+                  </InputAdornment>
+                }
+                sx={{
+                  backgroundColor: "#F0F0F0",
+                  "& fieldset": { border: "none" },
+                }}
+                inputProps={{
+                  autoComplete: "new-password", // Prevent auto-fill
+                }}
               />
             </Grid>
             <Grid item xs={12} display="flex" alignItems="center">
@@ -96,7 +124,6 @@ export default function Login() {
                   color: "white",
                   borderRadius: "38px",
                   fontSize: { xs: "12px", md: "12px", lg: "14px" },
-                  
                 }}
               >
                 Login

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Tab, Box, Grid, Tabs } from "@mui/material";
+import { Tab, Box, Grid, Tabs, Typography } from "@mui/material";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 export default function Auth() {
@@ -39,6 +39,11 @@ export default function Auth() {
   return (
     <Box>
       <Grid container height="80vh" justifyContent="center" alignItems="center">
+        <Grid xs={12}>
+          <Typography variant="h4" textAlign="center">
+            {value == 0 ? "Sign in to Montana" : "Create an account"}
+          </Typography>{" "}
+        </Grid>
         <Grid
           item
           xs={12}
@@ -47,9 +52,6 @@ export default function Auth() {
           sx={{
             margin: "0 auto",
             padding: "24px",
-            backgroundColor: " rgb(241, 241, 241,0.6)",
-            borderRadius: "32px",
-            boxShadow: "2px 2px 24px #DBDBDB",
           }}
         >
           <Box
@@ -57,6 +59,7 @@ export default function Auth() {
               justifyContent: "center",
               alignItems: "center",
               display: "flex",
+              m: 4,
             }}
           >
             <Tabs
@@ -81,18 +84,24 @@ export default function Auth() {
                   label={menuItem.title}
                   {...a11yProps(index)}
                   sx={{
-                    width: { xs: "150px" },
+                    width: { xs: "150px", md: "200px" },
                     zIndex: "100",
                     color:
                       value === index ? "white !important" : "black !important",
-                    fontSize: { xs: "12px", md: "12px", lg: "14px",xl:"16px" },
+                    fontSize: {
+                      xs: "12px",
+                      md: "12px",
+                      lg: "14px",
+                      xl: "16px",
+                    },
                   }}
                 />
               ))}
             </Tabs>
           </Box>
-
-          <Outlet />
+          <Box sx={{height:"400px"}}>
+            <Outlet />
+          </Box>
         </Grid>
       </Grid>
     </Box>

@@ -73,9 +73,7 @@ export default function Cart() {
           rowGap={2}
           sx={{
             width: { xs: "100%", md: "80%", lg: "50%" },
-            backgroundColor: "#f5f5f5",
             padding: "20px",
-            borderRadius: "32px",
           }}
         >
           <Grid item xs={12}>
@@ -97,8 +95,8 @@ export default function Cart() {
               disableElevation
               color="primary"
               sx={{
-                fontSize: { xs: "14px", md: "14px", lg: "16px", xl: "18px" },
-                color: "white",
+                fontSize: { xs: "14px", md: "14px",   },
+                  color: "white",
               }}
             >
               Login

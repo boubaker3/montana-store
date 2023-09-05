@@ -72,7 +72,7 @@ export default function ProductCard(props) {
         sx={{
           borderRadius: "32px",
           width: " 100%",
-          height: "200px",
+          height: "250px",
           objectFit: "cover",
         }}
       ></Avatar>

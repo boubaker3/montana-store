@@ -9,17 +9,17 @@ export default function Orders() {
   const [pageNum, setPageNum] = useState(1);
   const [orders, setOrders] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
-  const token = localStorage.getItem("token");
   const handleOrders = async () => {
     setLoading(true);
-    try {
-      if (user && token) {
+    console.log(user);
+    if (user) {
+      try {
         const response = await getOrders(user._id, pageNum);
         setOrders(response);
         setLoading(false);
+      } catch (error) {
+        setLoading(false);
       }
-    } catch (error) {
-      setLoading(false);
     }
   };
   useEffect(() => {
@@ -79,9 +79,7 @@ export default function Orders() {
           rowGap={2}
           sx={{
             width: { xs: "100%", md: "80%", lg: "50%" },
-            backgroundColor: "#f5f5f5",
             padding: "20px",
-            borderRadius: "32px",
           }}
         >
           <Grid item xs={12}>
@@ -103,7 +101,7 @@ export default function Orders() {
               disableElevation
               color="primary"
               sx={{
-                fontSize: { xs: "14px", md: "14px", lg: "16px", xl: "18px" },
+                fontSize: { xs: "14px", md: "14px",   },
                 color: "white",
               }}
             >
