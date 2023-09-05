@@ -66,7 +66,6 @@ export default function Product() {
   const [loading, setLoading] = useState(false);
   const markupPercentage = 70;
   const markupFactor = 1 + markupPercentage / 100;
-  console.log(process.env.REACT_APP_PAYPAL_CLIENT_ID);
   const [productImage, setProductImage] = useState("");
   const [productPrice, setProductPrice] = useState(0);
   const [updatedProductPrice, setUpdatedProductPrice] = useState(0);
