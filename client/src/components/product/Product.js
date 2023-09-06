@@ -66,6 +66,7 @@ export default function Product() {
   const [loading, setLoading] = useState(false);
   const markupPercentage = 70;
   const markupFactor = 1 + markupPercentage / 100;
+
   const [productImage, setProductImage] = useState("");
   const [productPrice, setProductPrice] = useState(0);
   const [updatedProductPrice, setUpdatedProductPrice] = useState(0);
@@ -114,6 +115,7 @@ export default function Product() {
       const commentsResponse = await getProductComments(pid, pageNum);
       setComments(commentsResponse.data.list);
       setLoading(false);
+      console.log(commentsResponse)
     } catch (error) {
       setLoading(false);
     }
@@ -161,9 +163,7 @@ export default function Product() {
 
   return (
     <Grid container spacing={3} p={4} justifyContent="center">
-      <Typography variant="h6" textAlign="center">
-        {product?.productNameEn}
-      </Typography>{" "}
+      <Typography variant="h6" textAlign="center">{product?.productNameEn}</Typography>{" "}
       <Grid container mt={2} p={2} columnGap={4}>
         <Grid item xs={12} md={6} xl={4}>
           <Avatar
@@ -218,7 +218,7 @@ export default function Product() {
               <ListItemText
                 secondary={
                   <Typography variant="h4">
-                    {updatedProductPrice + "$"}
+                    {updatedProductPrice+ "$"}
                   </Typography>
                 }
               />
@@ -312,7 +312,8 @@ export default function Product() {
                 if (user) {
                   setOpenForm(true);
                 } else {
-                  navigate("/auth/login");
+                  navigate("/auth/login", { state: { prevPath: `/product?pid=${pid}` } });
+
                 }
               }}
               disableElevation
@@ -327,6 +328,7 @@ export default function Product() {
                 marginRight: "auto",
                 display: "flex",
                 textAlign: "center",
+               
               }}
             >
               <ShoppingCartIcon sx={{ color: "white" }} />
