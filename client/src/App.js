@@ -37,7 +37,9 @@ const theme = createTheme({
   },
 });
 const CJ_ACESS_TOKEN =
-  "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMTIxNSIsInR5cGUiOiJBQ0NFU1NfVE9LRU4iLCJzdWIiOiJicUxvYnFRMGxtTm55UXB4UFdMWnlrVmkwQUdLWjBaN3dodUdYbmpGcFVXUW9vTlBYU3BubVRaSDArZ08vclZCMFVNTVJEMjNrY1JUeWJsWDlvekorcUlsTi9FRk5WRzNiVWVTb0V3d3ppQ1E0b0NqU0pyVVZiVkZSRDQ4YlFrNnF5TVNQZk0wNmg5Qm5kVjE1dU8zWFdzcEx5OWNvaXpUVkNrbHVyUVhTTlROWDlNR2t6SEovUlQ0V0t3ZlVTcjVMZ0w0eFZ2MHZlbU90U3h6VmhwdU1scXFyTGxJeVRETWRFK3RNaFRhM0FBZGZONkpBNDAwOElxa2xGMVpTeWFBVGp0dE5nUklRMkxHMVkvQ3JZRTRxWkRaZGFBa1BqTHNEdFF5RDJta0JDZXlCWmhSb21Vdy9zQkRCL0ZVZFFnLyJ9.vCY9ImJCw94G4mkLUa-hN1OIJ0mVpgDjk7wtz_fBCpU";
+  "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMTIxNSIsInR5cGUiOiJBQ0NFU1NfVE9LRU4iLCJzdWIiOiJicUxvYnFRMGxtTm55UXB4UFdMWnlrVmkwQUdLWjBaN3dodUdYbmpGcFVXUW9vTlBYU3BubVRaSDArZ08vclZCMFVNTVJEMjNrY1JUeWJsWDlvekoraXlJVFNsT3EvWCtqVGZBNk9JcHNDR25FYkJ1QVlZZ0pVR2pQSUsyUFBaTXF5TVNQZk0wNmg5Qm5kVjE1dU8zWFdzcEx5OWNvaXpUVkNrbHVyUVhTTlROWDlNR2t6SEovUlQ0V0t3ZlVTcjVMZ0w0eFZ2MHZlbU90U3h6VmhwdU1scXFyTGxJeVRETWRFK3RNaFRhM0FBZGZONkpBNDAwOElxa2xGMVpTeWFBVGp0dE5nUklRMkxHMVkvQ3JZRTRxWkRaZGFBa1BqTHNEdFF5RDJta0JDZXlCWmhSb21Vdy9zQkRCL0ZVZFFnLyJ9.ZQLDHQvd5g18wMPYjs5SeTvlaPWYnyDnpByHf-jVQQo";
+const ACCESS_TOKEN_EXPIRY_DATE = "2023-09-21T14:05:27+08:00";
+
 function App() {
   const location = useLocation();
   const currentPath = location.pathname;
@@ -54,14 +56,23 @@ function App() {
   }, [currentPath, token, navigate]);
   const accessToken = localStorage.getItem("accessToken");
   useEffect(() => {
-    
     const handleCjToken = async () => {
       await localStorage.setItem("accessToken", CJ_ACESS_TOKEN);
+      await localStorage.setItem(
+        "accessTokenExpiryDate",
+        ACCESS_TOKEN_EXPIRY_DATE
+      );
       setIsLoading(false);
     };
     if (!accessToken) {
       handleCjToken();
     } else {
+      const accessTokenExpiration = new Date(
+        localStorage.getItem("accessTokenExpiryDate")
+      );
+      if (accessTokenExpiration >= new Date()) {
+        handleCjToken();
+      }
       setIsLoading(false);
     }
   }, []);
