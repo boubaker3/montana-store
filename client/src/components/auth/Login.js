@@ -13,7 +13,7 @@ import { login } from "./AuthApi";
 import RegistrationTerms from "./RegistrationTerms";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
-import { useHistory } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const initialFormValues = {
   email: "",
@@ -25,8 +25,8 @@ export default function Login() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [registrationTerms, setRegistrationTerms] = useState(false);
-  const history = useHistory();
-
+  const navigate = useNavigate();
+  const location = useLocation();
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
@@ -44,8 +44,8 @@ export default function Login() {
         setIsLoading(false);
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
-        if (history.length > 1) {
-          history.goBack(); // Navigate back only if there is a previous URL
+        if (location.state && location.state.from) {
+          window.location.href = location.state.from;
         } else {
           window.location.href = "/";
         }
