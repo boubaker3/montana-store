@@ -14,6 +14,7 @@ import RegistrationTerms from "./RegistrationTerms";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
+import { useHistory } from "react-router-dom";
 
 const initialFormValues = {
   username: "",
@@ -28,6 +29,7 @@ export default function Signup() {
   const [isLoading, setIsLoading] = useState(false);
   const [registrationTerms, setRegistrationTerms] = useState(false);
   const [agreed, setIsAgreed] = useState(false);
+  const history = useHistory();
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
@@ -65,7 +67,11 @@ export default function Signup() {
         setIsLoading(false);
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
-        window.location.href = "/";
+        if (history.length > 1) {
+          history.goBack(); // Navigate back only if there is a previous URL
+        } else {
+          window.location.href = "/";
+        }
       } else {
         setError("Something went wrong, please try again");
       }
@@ -179,7 +185,6 @@ export default function Signup() {
                   color: "white",
                   borderRadius: "38px",
                   fontSize: { xs: "12px", md: "12px", lg: "14px" },
-                  
                 }}
               >
                 Signup
