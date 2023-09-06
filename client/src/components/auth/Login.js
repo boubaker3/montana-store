@@ -13,14 +13,14 @@ import { login } from "./AuthApi";
 import RegistrationTerms from "./RegistrationTerms";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
-import {   useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const initialFormValues = {
   email: "",
   password: "",
 };
 
-export default function Login( ) {
+export default function Login() {
   const [formData, setFormData] = useState(initialFormValues);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);

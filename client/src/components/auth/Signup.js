@@ -14,7 +14,7 @@ import RegistrationTerms from "./RegistrationTerms";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
-import {   useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const initialFormValues = {
   username: "",
