@@ -13,7 +13,10 @@ import ProductCard from "./ProductCard";
 import SearchIcon from "@mui/icons-material/Search";
 import { useSelector } from "react-redux";
 import Footer from "../Footer";
+import ChooseCategory from "../featuredProduct/ChooseCategory";
 export default function Home() {
+  const favorite = localStorage.getItem("favorite");
+
   const [customSearch, setCustomSearch] = useState("");
   const [category, setCategory] = useState("");
   const [categoryId, setCategoryId] = useState("");
@@ -41,7 +44,7 @@ export default function Home() {
   }
   useEffect(() => {
     fetchProducts();
-   }, [categoryId]);
+  }, [categoryId]);
 
   useEffect(() => {
     async function fetchCategories() {
@@ -221,6 +224,7 @@ export default function Home() {
           }}
         />
       )}
+      {!favorite && <ChooseCategory />}
     </Grid>
   );
 }

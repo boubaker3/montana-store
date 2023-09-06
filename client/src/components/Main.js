@@ -9,7 +9,6 @@ import InfoIcon from "@mui/icons-material/Info";
 import ChooseCategory from "./featuredProduct/ChooseCategory";
 
 export default function Main() {
-  const favorite = localStorage.getItem("favorite");
 
   const menuData = [
     { title: "Home", path: "/", icon: <HomeIcon /> },
@@ -133,7 +132,6 @@ export default function Main() {
         <Outlet />
       </Grid>
 
-      {!favorite && <ChooseCategory />}
     </Grid>
   );
 }
