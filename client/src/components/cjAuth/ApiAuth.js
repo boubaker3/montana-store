@@ -6,8 +6,8 @@ export const getAccessToken = async () => {
       "https://developers.cjdropshipping.com/api2.0/v1/authentication/getAccessToken",
 
       {
-        email: "smoozi.ch@gmail.com",
-        password: "cbbd451844454edc93b30fbeda284aa4",
+        email: "xxx@gmail.com",
+        password: "xxx",
       }
     );
     localStorage.setItem("accessToken", apiResponse.data.data.accessToken);
