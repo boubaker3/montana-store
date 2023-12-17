@@ -103,11 +103,8 @@ function App() {
                 <Route path="login" element={<Login />} />
               </Route>{" "}
               <Route path="/" element={<Main />}>
-                <Route path="" element={<Home />} />
+                <Route path="/products" element={<Home />} />
                 <Route path="orders" element={<Orders />} />
-                <Route path="reviews" element={<Reviews />} />
-                <Route path="contact" element={<Contact />} />
-                <Route path="about" element={<About />} />
                 <Route path="cart" element={<Cart />} />
                 <Route path="product" element={<Product />} />
               </Route>

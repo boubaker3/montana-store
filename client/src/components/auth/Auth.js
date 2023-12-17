@@ -44,13 +44,13 @@ export default function Auth() {
           <Typography color="gray" m={2}>
             {value === 0 ? (
               <span>
-                Ready to embark on a shopping adventure? <br />Sign in now to unlock a
-                world  of convenience, savings, and more!
+                Ready to embark on a shopping adventure? <br />
+                Sign in now to unlock a world of convenience, savings, and more!
               </span>
             ) : (
               <span>
-                Ready to embark on a shopping adventure?  <br />Sign up now to unlock a
-                world of convenience, savings, and more!
+                Ready to embark on a shopping adventure? <br />
+                Sign up now to unlock a world of convenience, savings, and more!
               </span>
             )}
           </Typography>

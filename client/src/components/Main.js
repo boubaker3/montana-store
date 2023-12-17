@@ -7,15 +7,15 @@ import StarIcon from "@mui/icons-material/Star";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import InfoIcon from "@mui/icons-material/Info";
 import ChooseCategory from "./featuredProduct/ChooseCategory";
-
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 export default function Main() {
 
   const menuData = [
-    { title: "Home", path: "/", icon: <HomeIcon /> },
-    { title: "Orders", path: "/orders", icon: <ShoppingCartIcon /> },
-    { title: "Reviews", path: "/reviews", icon: <StarIcon /> },
-    { title: "Contact us", path: "/contact", icon: <ContactMailIcon /> },
-    { title: "About us", path: "/about", icon: <InfoIcon /> },
+    { title: "products", path: "/products", icon: <HomeIcon /> },
+    //{ title: "Orders", path: "/orders", icon: <LocalMallIcon /> },
+   // { title: "Reviews", path: "/reviews", icon: <StarIcon /> },
+    //{ title: "Contact us", path: "/contact", icon: <ContactMailIcon /> },
+  //  { title: "About us", path: "/about", icon: <InfoIcon /> },
   ];
 
   function a11yProps(index) {
@@ -39,16 +39,7 @@ export default function Main() {
         break;
       case "/orders":
         setValue(1);
-        break;
-      case "/reviews":
-        setValue(2);
-        break;
-      case "/contact":
-        setValue(3);
-        break;
-      case "/about":
-        setValue(4);
-        break;
+        break; 
       default:
         setValue(0);
     }

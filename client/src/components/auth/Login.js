@@ -47,7 +47,7 @@ export default function Login() {
         if (prevPath) {
           window.location.href = prevPath;
         } else {
-          window.location.href = "/";
+          window.location.href = "/products";
         }
       } else {
         setIsLoading(false);

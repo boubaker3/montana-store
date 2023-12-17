@@ -71,7 +71,7 @@ export default function Signup() {
         if (prevPath) {
           window.location.href = prevPath;
         } else {
-          window.location.href = "/";
+          window.location.href = "/products";
         }
       } else {
         setError("Something went wrong, please try again");
